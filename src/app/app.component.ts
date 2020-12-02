@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Alkemy';
 
-  public inicio = "Ejericio para Alkemy";
+  public inicio = "Ejercicio para Alkemy";
 }
