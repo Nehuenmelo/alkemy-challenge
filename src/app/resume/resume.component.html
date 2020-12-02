@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Balance actual</h1>
+    <div class="div-balance">
+        <h2>{{balance}}</h2>
+    </div>
+
+    <h1>Últimas 10 operaciones</h1>
+    <ul>
+        <li *ngFor="let operation of operations.slice().reverse(); index as i">
+            <div *ngIf="i < 10">
+                <a [routerLink]="['/operation', operation._id]">
+                    <p class="index">{{i+1}}</p>
+                    <p class="op-detail">{{operation.concept}}</p>
+                    <div class="clear-fix"></div>
+                    <a (click)="deleteOperation(operation._id)" class="btn-delete-list">Borrar</a>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>{{title}}</h1>
+
+    <form #operationForm="ngForm" (ngSubmit)="onSubmit(operationForm)">
+        <label for="concept">Concepto</label>
+        <input type="text"  name="concept" #concept="ngModel" [(ngModel)]="operation.concept" required/>
+        <span *ngIf="concept.touched && !concept.valid">El concepto es Obligatorio</span>
+
+        <label for="">Monto</label>
+        <input type="number"  name="amount" #amount="ngModel" [(ngModel)]="operation.amount" required/>
+        <span *ngIf="amount.touched && !amount.valid">El monto es Obligatorio</span>
+
+        <label for="date">Fecha</label>
+        <input type="date"  name="date" #date="ngModel" [(ngModel)]="operation.date" required/>
+        <span *ngIf="date.touched && !date.valid">La fecha es Obligatoria</span>
+
+        <label for="">Tipo de operación</label>
+        <div *ngIf="operation.income">
+            <p class="opIncome">Ingreso</p>
+        </div>
+        <div *ngIf="!operation.income">
+            <p class="opIncome">Egreso</p>
+        </div>
+
+        <input class="btn-send" type="submit" value="Enviar" [disabled]="!operationForm.form.valid">
+    </form>
+</div>

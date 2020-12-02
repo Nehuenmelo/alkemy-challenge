@@ -1,0 +1,16 @@
+<div class="container" *ngIf="operation">
+    <h1 class="underline">Concepto: {{operation.concept}}</h1>
+    <h3>Monto: ${{operation.amount}}</h3>
+    <h3>Fecha: {{operation.date | date:'yyyy-MM-dd'}} (AAAA-MM-DD) </h3>
+    <h3 class="inline-block">Tipo de Operación:</h3>
+    <div class="inline-block" *ngIf="operation.income">
+        <p class="opIncome">Ingreso</p>
+    </div>
+    <div class="inline-block" *ngIf="!operation.income">
+        <p class="opIncome">Egreso</p>
+    </div>
+    
+    <a (click)="deleteOperation(operation._id)" class="btn-delete">Borrar</a>
+    <a [routerLink]="['/edit-operation', operation._id]" class="btn-edit">Editar</a>
+
+</div>

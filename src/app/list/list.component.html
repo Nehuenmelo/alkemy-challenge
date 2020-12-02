@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Operaciones guardadas</h1>
+    <ul>
+        <li *ngFor="let operation of operations; index as i">
+            <a [routerLink]="['/operation', operation._id]">
+                <p class="index">{{i+1}}</p>
+                <p class="op-detail">{{operation.concept}}</p>
+                <div class="clear-fix"></div>
+                <a (click)="deleteOperation(operation._id)" class="btn-delete-list">Borrar</a>
+            </a>
+        </li>
+    </ul>
+</div>
